@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title lang="en">Links</title>
+    <style>
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body>div {
+        margin-bottom: 20px;
+    }
+
+    .caption {
+        font-size: 80%;
+        color: rgb(155, 155, 155);
+    }
+   
+    a {
+       color: green;
+    }
+
+    a:hover {
+        color: red;
+    }
+
+/* Вариант 1
+Использование таблицы, назначение border-right ячейкам
+Достоинства:
+легкость в реализации, не нужно задавать дополнительные стилевые свойства, чтобы выстроить элементы в ряд
+Недостатки:
+способ не поддерживает адаптивную верстку - при уменьшении ширины экрана ячейки таблицы не будут
+перестраиваться */
+
+    div.variant-1 table {
+        border-collapse: collapse;
+    }
+
+    div.variant-1 td {      
+        padding: 10px;        
+    }
+
+    div.variant-1 td:not(:last-child) {
+        border-right: solid red;       
+    }
+
+/* Вариант 2
+Использование div со свойством display: inline-block, чтобы расположить элементы в ряд,
+для разделителей - настройки border-right
+Достоинства:
+ -display: inline-block - гибкость, поддержка адаптивной верстки, больше доступных способов для создания разделителей меню
+ -настройки border-right - достаточно легкий способ создания разделителей, не требующий отдельных объектов
+ в разметке или обращения к псевдоэлементам
+Недостатки:
+ -при использовании display: inline-block нужно следить за переносами строк и количеством пробелов, так как они учитываются.
+ Если объекты должны быть вплотную друг к другу, их следует располагать в одну строку без пробелов
+ -так как разделители (border-right) являются частью div, а не отдельными элементами,
+ они ограничены по стилизации, например, высота всегда будет равна высоте контейнера */
+    
+    div.variant-2 div {
+        display: inline-block;       
+        padding: 10px;
+    }
+
+    div.variant-2 div:not(:last-child) {
+        border-right: solid red;       
+    }
+
+/* Вариант 3 
+Контейнеры ссылок - div со свойством display: inline-block, разделители - с помощью настроек 
+псевдоэлементов ::after у div
+Достоинства:
+-использование псевдоэлементов для разделителей уменьшает количество кода в разметке
+(по сравнению с использованием отдельных div для них), дает больше возможностей для стилизации
+(по сравнению с использованием border-right)
+Недостатки:
+-псевдоэлементы не являются полноценными объектами в модели документа и в некоторых случаях это может быть важно
+*/
+
+    div.variant-3 div:first-child {
+        margin-left: 10px;            
+    }
+
+    div.variant-3 div {
+        display: inline-block;      
+    }
+
+    div.variant-3 div:not(:last-child)::after{
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 41px;
+        margin-left: 10px;
+        margin-right: 10px;       
+        background-color: red;
+        vertical-align: middle;
+    }
+
+/* Вариант 4
+Использование плавающих элементов div для расположения их в ряд, отдельные div для разделителей
+Достоинства:
+- при использовании float, в отличии от способа с display: inline-block, не учитываются пробелы.
+  Способ поддерживается всеми браузерами (с inline-block в самых старых могут возникнуть проблемы)
+- разделители в виде отдельных объектов дают больше возможностей по рапределению их внутри контейнера,
+  позволяют создавать более сложный дизайн 
+Недостатки: 
+- с float нужны дополнительные меры, чтобы контейнер по высоте соответствовал содержимому
+  (дополнительный div с clear: both или присвоение контейнеру класса clearfix с настройками псевдоэлемента ::after),
+  сложности с выравниванием по горизонтали и по вертикали (vertical-align, text-align не работают)
+- отдельные div для разделителей перегружают разметку */
+
+    div.clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    div.variant-4 div {
+        float: left;     
+        padding: 10px;       
+    }
+
+     div.variant-4 div:nth-child(even) {       
+        background-color: red;
+        width: 3px;
+        height: 41px;
+        padding: 0;     
+    }
+    
+/* Вариант 5
+Контейнеры ссылок - div с display: inline-block, разделители - фон общего контейнера в промежутках между div со ссылками
+Способ на самый крайний случай, если все остальные способы по каким-нибудь причинам не подошли.
+Конечно, лучше так не делать, так как здесь создается лишь видимость нужного элемента, верстка легко может "развалиться",
+например, при перестройке блоков будет виден фон, стилизовать, соответственно тоже можно только этот фон -
+- только менять цвет и прозрачность
+*/
+   
+    div.variant-5 {
+        display: inline-block;
+        background-color: red;      
+    }
+
+    div.variant-5 div {
+        display: inline-block;
+        padding: 10px;        
+        background-color: rgb(255, 255, 255);         
+    }
+
+    div.variant-5 div:not(:last-child) {
+        margin-right: 3px;
+    }
+    
+    </style>
+  </head>
+  <body>
+
+<!---------------------------------------------------------------v 1-->
+
+    <p class="caption">вариант 1 (таблица, разделители &mdash; настройки border-right у td)</p>
+    <div class="variant-1">
+        <table>
+          <tr>
+            <td><a href="links.html">первая ссылка</a></td>
+            <td><a href="links.html">вторая ссылка</a></td>
+            <td><a href="links.html">третья ссылка</a></td>
+            <td><a href="links.html">четвертая ссылка</a></td>
+            <td><a href="links.html">пятая ссылка</a></td>
+          </tr>
+        </table>
+    </div>
+
+<!---------------------------------------------------------------v 2-->
+
+    <p class="caption">вариант 2 (контейнеры ссылок &mdash; div с display: inline-block, разделители &mdash; настройки border-right у div со ссылками)</p>
+    <div class="variant-2">
+      <div><a href="links.html">первая ссылка</a></div><div><a href="links.html">вторая ссылка</a></div><div><a href="links.html">третья ссылка</a></div><div><a href="links.html">четвертая ссылка</a></div><div><a href="links.html">пятая ссылка</a></div>
+    </div>
+
+<!---------------------------------------------------------------v 3-->
+
+    <p class="caption">вариант 3 (контейнеры ссылок &mdash; div с display: inline-block, разделители &mdash; настройки псевдоэлементов ::after у div)</p>
+    <div class="variant-3" >
+      <div><a href="links.html">первая ссылка</a></div><div><a href="links.html">вторая ссылка</a></div><div><a href="links.html">третья ссылка</a></div><div><a href="links.html">четвертая ссылка</a></div><div><a href="links.html">пятая ссылка</a></div>
+    </div>
+
+<!---------------------------------------------------------------v 4-->
+
+    <p class="caption">вариант 4 (контейнеры ссылок &mdash; плавающие div с float: left, разделители &mdash; отдельные div)</p>
+    <div class="variant-4 clearfix">
+      <div><a href="links.html">первая ссылка</a></div><div></div>
+      <div><a href="links.html">вторая ссылка</a></div><div></div>
+      <div><a href="links.html">третья ссылка</a></div><div></div>
+      <div><a href="links.html">четвертая ссылка</a></div><div></div>
+      <div><a href="links.html">пятая ссылка</a></div>
+    </div>
+
+<!---------------------------------------------------------------v 5-->
+
+    <p class="caption">вариант 5 (контейнеры ссылок &mdash; div с display: inline-block, в качестве разделителей красный фон общего контейнера в промежутках)</p>
+    <div class="variant-5" >
+      <div><a href="links.html">первая ссылка</a></div><div><a href="links.html">вторая ссылка</a></div><div><a href="links.html">третья ссылка</a></div><div><a href="links.html">четвертая ссылка</a></div><div><a href="links.html">пятая ссылка</a></div>
+    </div> 
+  </body>
+</html>

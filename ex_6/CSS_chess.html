@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title lang="en">Chessboard</title>  
+    <style>
+
+      table.CHESS {
+        border-collapse: collapse;
+        width: 531px; /*заданы общие размеры для того, чтобы они остались прежними после уменьшения крайних ячеек*/
+        height: 531px;
+      }
+
+      table.CHESS td {
+        width: 50px;
+        height: 50px;
+        border: solid gray 1px;
+      }
+
+      /*внесенные дополнения*/
+
+      table.CHESS tr:first-child td, table.CHESS tr:last-child td  {  
+        height: 25px!important;
+        background-color: rgb(161, 223, 161)!important;
+      }
+
+      table.CHESS tr td:first-child, table.CHESS tr td:last-child {
+      width: 25px!important;
+      background-color: rgb(161, 223, 161)!important;
+      }
+      
+      table.CHESS tr:nth-child(even) td:nth-child(odd),
+      table.CHESS tr:nth-child(odd) td:nth-child(even) {
+      background-color: black;
+      } 
+      
+      /*вариант с использованием псевдокласса :not
+
+      table.CHESS tr:first-child td, table.CHESS tr:last-child td {  
+        height: 25px;
+        background-color: rgb(161, 223, 161);
+      }
+
+      table.CHESS tr td:first-child, table.CHESS tr td:last-child {
+      width: 25px!important;
+      background-color: rgb(161, 223, 161);
+      }
+    
+
+      table.CHESS tr:nth-child(even):not(:last-child) td:nth-child(odd):not(:first-child),
+      table.CHESS tr:nth-child(odd):not(:first-child) td:nth-child(even):not(:last-child) {
+      background-color: black;
+      }
+      
+      */
+
+    </style>
+  </head>
+  <body>
+    <table class='CHESS'>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+    </table>
+  </body>
+</html>

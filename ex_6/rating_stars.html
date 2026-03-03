@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">    
+    <title lang="en">Rating_stars</title>
+    <style>
+
+      div.stars, div.stars div {
+         display: inline-block;
+         height: 78px;
+      }
+
+      div.stars div {         
+         width: 90px;         
+         background: url(star0.png) no-repeat left;
+      }
+
+      div.stars:hover div {
+        cursor: pointer;   
+        background-image: url(star1.png);
+      }
+      
+      div.stars div:hover~div {
+         background: url(star0.png) no-repeat left;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="stars">         
+      <div></div><div></div><div></div><div></div><div></div>           
+    </div>
+  </body>
+</html>
