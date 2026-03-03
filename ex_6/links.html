@@ -80,13 +80,13 @@
 -псевдоэлементы не являются полноценными объектами в модели документа и в некоторых случаях это может быть важно
 */
 
-    div.variant-3 div:first-child {
-        margin-left: 10px;            
-    }
-
     div.variant-3 div {
         display: inline-block;      
     }
+
+    div.variant-3 div:first-child {
+        margin-left: 10px;            
+    }   
 
     div.variant-3 div:not(:last-child)::after{
         content: '';
@@ -111,6 +111,11 @@
   (дополнительный div с clear: both или присвоение контейнеру класса clearfix с настройками псевдоэлемента ::after),
   сложности с выравниванием по горизонтали и по вертикали (vertical-align, text-align не работают)
 - отдельные div для разделителей перегружают разметку */
+   
+    div.variant-4 div {
+        float: left;     
+        padding: 10px;       
+    }
 
     div.clearfix::after {
         content: '';
@@ -118,12 +123,7 @@
         clear: both;
     }
 
-    div.variant-4 div {
-        float: left;     
-        padding: 10px;       
-    }
-
-     div.variant-4 div:nth-child(even) {       
+    div.variant-4 div:nth-child(even) {       
         background-color: red;
         width: 3px;
         height: 41px;
