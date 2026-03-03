@@ -5,6 +5,19 @@
     <title lang="en">Chess v2</title>
     <style>
 
+        a {
+         font-weight: bold;
+         text-decoration: none;
+        }
+              
+        p {
+         margin: 5px;
+        }
+
+        a:hover{
+         text-decoration: underline;
+        }
+
         p.name {
             font-size: 150%;
             font-weight: bold;
@@ -23,22 +36,9 @@
         p.info-block {
             font-style: italic;
             color: blue;
-        }
+        }       
 
-        a {
-         font-weight: bold;
-         text-decoration: none;
-        }
-
-        a:hover{
-         text-decoration: underline;
-        }
-        
-        p {
-         margin: 5px;
-        }
-
-        p a[href*="//"]{  /*вставка пиктограммы c помощью назначения ее фоновым изображением*/
+        p a[href*="//"] {  /*вставка пиктограммы c помощью назначения ее фоновым изображением*/
          background: url('extref.png') no-repeat left 4px;
          padding-left: 11px;
         }
