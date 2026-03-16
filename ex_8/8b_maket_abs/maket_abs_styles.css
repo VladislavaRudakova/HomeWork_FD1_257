@@ -1,0 +1,43 @@
+#images-container {     
+    text-align: center;     
+}
+
+#images {
+    width: 420px;
+    height: 423px;
+    position: relative;
+    display: inline-block;    
+    vertical-align: middle;
+}
+
+#img1 {
+    position: absolute;
+    left: 0;
+    top: 40px;
+}
+
+#img2 {
+    position: absolute;
+    right: 0;
+}
+
+#img3 {
+    position: absolute;
+    left: 110px;
+    bottom: 0;
+}
+
+#img4 {
+    position: absolute;
+    left: 82px;
+    top: 72px;     
+}
+
+#img1:hover, #img2:hover, #img3:hover {
+    cursor: pointer;
+    z-index: 1;
+}
+
+#img4:hover {
+    cursor: pointer;     
+}
