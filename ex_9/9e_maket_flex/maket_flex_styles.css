@@ -27,12 +27,11 @@ body {
 }
 
 #main-container {    
-    display: flex;
+    display: flex;    
 }
 
-#left-block {  
-    display: flex;
-    flex-direction: column;
+#left-block {
+    flex: 300px 0 0;   
     padding: 20px;
     font-size: 130%;
     background-color: rgb(248, 233, 182);                     
@@ -42,7 +41,8 @@ body {
     font-weight: bold;
 }
 
-.main-content {  
+.main-content {
+    flex: 0px 1 0;
     padding: 0 2em 0 2em;    
     background-image: url(ball.png);
     background-repeat: repeat-y;
@@ -102,13 +102,13 @@ body {
 @media all and (max-width: 800px) {
 
     #left-block {        
-        order: 3;        
+        order: 3;
+        flex: 0px 0 0;
         text-align: center;
         font-size: 100%;            
         padding: 1em;
     }
    
-
     #left-block ul {                            
         padding-left: 0;
         padding-right: 0;
