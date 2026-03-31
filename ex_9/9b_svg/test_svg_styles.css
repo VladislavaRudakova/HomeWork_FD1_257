@@ -25,13 +25,11 @@ g#moon-stars {
 
 path#sky:hover {
     cursor: pointer;
-    fill: rgb(0, 47, 255);
-    transition: 0.1s;
+    fill: rgb(0, 47, 255);    
 }
 
 path#sky:hover~g:not(#moon-stars) {
-    display: none;
-    transition: 0.1s;
+    display: none;   
 }
 
 path#sky:hover + g {
@@ -40,7 +38,7 @@ path#sky:hover + g {
 
 /*---------------------mouse*/
 
-svg#mouse g{
+svg#mouse g {
     display: none;
 }
 

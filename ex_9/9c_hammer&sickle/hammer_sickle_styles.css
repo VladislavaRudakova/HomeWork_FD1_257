@@ -62,14 +62,12 @@ div#hammer-sickle {
     background-color: #da291c;            
 }
 
-
 #main-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 .symbol-container {
     position: relative;
@@ -78,7 +76,6 @@ div#hammer-sickle {
     background: #da291c;
     transform: scale(0.3);
 }
-
 
 .hammer {
     transform: rotate(0);
