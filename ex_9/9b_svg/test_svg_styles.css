@@ -1,0 +1,61 @@
+
+*:hover {
+    transition: 0.1s;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+svg#sky:hover g, svg#mouse:hover g {
+    pointer-events: none;
+}
+
+div#sky, div#mouse {
+    width: 500px;   
+    padding: 50px;
+}
+ 
+/*---------------------sky*/
+
+g#moon-stars {
+    display: none;
+}
+
+path#sky:hover {
+    cursor: pointer;
+    fill: rgb(0, 47, 255);
+    transition: 0.1s;
+}
+
+path#sky:hover~g:not(#moon-stars) {
+    display: none;
+    transition: 0.1s;
+}
+
+path#sky:hover + g {
+    display: inline
+}
+
+/*---------------------mouse*/
+
+svg#mouse g{
+    display: none;
+}
+
+path#mouse:hover {
+    cursor: pointer;
+    fill: rgb(255, 174, 219, 0.5);
+    stroke: rgb(255, 168, 233);
+    stroke-width: 10;
+    stroke-dasharray: 3, 20;
+}
+
+path#mouse:hover + ellipse {
+    display: none;
+}
+
+path#mouse:hover~g {
+    display: inline;
+}

@@ -1,0 +1,281 @@
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+#cont {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: solid 1px rgb(192, 192, 192);
+    padding: 30px;
+}
+
+#cont:hover>div:first-child + div{
+    border-color: royalblue;
+    transition: 0.1s;
+    animation: text-back-anim 3s infinite;
+}
+#cont:hover>div:first-child + div div{
+    animation: text-anim 3s infinite;
+}
+
+#cont:hover>div:last-child {
+    animation: square-border-anim 2s infinite;
+}
+
+#square {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 70px;
+    left: 70px;
+    background-color: rgb(255, 255, 255);
+    border: solid 2px rgb(214, 214, 214);
+    border-radius: 10px;
+}
+
+#text-animation {
+    position: relative;
+    width: 200px;
+    height: 20px;
+    color: royalblue;
+    border: solid 2px rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 5px 0 5px 0;
+    margin: 50px 0 50px 0;
+    overflow: hidden;
+    display: flex;
+}
+
+#text1 {
+    position: absolute;
+    left: -200px;
+    white-space: nowrap;
+}
+
+
+#ball-cont {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(248, 229, 247);
+    border: solid 2px royalblue;
+    overflow: hidden;
+    animation: 
+        border-anim 4s infinite,
+        background-anim 5s infinite;
+}
+
+#caption {
+    text-transform: uppercase;
+    font-size: 150%;
+    animation: caption-anim 4s infinite;
+}
+
+#ball {
+    position: absolute;
+    width: 30%;
+    animation: ball-anim 2s infinite;   
+}
+
+
+/*----------------------------text*/
+
+@keyframes text-anim {
+
+    from {
+        left: -200px;
+        color: royalblue;
+    }
+
+    to {
+        left: 200px;
+        color: white;
+    }
+}
+
+@keyframes text-back-anim {
+
+    from {
+        background-color: white;}
+
+    to {
+        background-color: royalblue;}
+}
+
+/*----------------------------ball*/
+
+@keyframes ball-anim {
+
+    from {
+        top: 20%;
+        left: -20%;
+        opacity: 0.1;
+    }
+
+    30% {        
+        top: 80%;
+        left: 30%;
+        transform: scaleY(50%);
+        opacity: 1;
+    }
+
+    55% {        
+        top: 20%;
+        left: 40%;
+        transform: scaleY(100%); 
+        opacity: 1;
+    }
+
+    80% {
+        top: 80%;
+        left: 70%;       
+        transform: scaleY(50%);
+        opacity: 1;        
+    }
+
+    to {
+        top: 20%;
+        left: 100%;       
+        transform: scaleY(50%);  
+        opacity: 0.1;      
+    }
+
+}
+
+
+@keyframes caption-anim {
+
+    from {        
+        color: royalblue;        
+    }
+
+    20% {
+        color: blueviolet;        
+    }
+
+    40% {
+        color: rgb(226, 43, 58);  
+    }
+
+    60% {
+        color: rgb(226, 192, 43);     
+    }
+
+    80% {
+        color: rgb(43, 226, 141);     
+    }
+
+    to {
+        color: royalblue;    
+    }
+
+}
+
+@keyframes border-anim {
+
+    from { 
+        border-color: royalblue;
+    }
+
+    20% {       
+        border-color:  blueviolet;
+    }
+
+    40% {
+        border-color: rgb(226, 43, 58);
+    }
+
+    60% {
+        border-color: rgb(226, 192, 43);
+    }
+
+    80% {
+        border-color:rgb(43, 226, 141);
+    }
+
+    to {
+        border-color: royalblue;    
+    } 
+}
+
+@keyframes background-anim {
+
+    from { 
+        background-color: rgb(248, 229, 247);
+    }
+
+    20% {       
+        background-color: rgb(236, 229, 248);
+    }
+
+    40% {
+    background-color: rgb(229, 247, 248);
+    }
+
+    60% {
+    background-color: rgb(243, 248, 229);
+    }
+
+    80% {
+        background-color: rgb(248, 245, 229);
+    }
+    
+    to { background-color: rgb(248, 229, 247);    
+    } 
+}
+
+/*----------------------------square*/
+
+@keyframes square-border-anim {
+
+    from {  
+        border-color: rgb(163, 109, 163);
+        border-style: dashed;
+        border-width: 4px;
+        
+    }
+
+    20% { 
+        transform: scale(1.5);           
+        border-color: rgb(163, 83, 163);
+        border-style: dashed;
+        border-width: 7px;
+        border-radius: 10%;      
+    }
+
+    40% {
+        transform: none;
+        width: 100px;
+        height: 100px;
+        border-color: rgb(163, 83, 163);
+        border-style: solid;
+        border-width: 7px;
+        border-radius: 20%;
+
+    }
+
+    60% {
+        border-color: rgba(163, 83, 163, 0.8);
+        border-width: 15px;
+        border-radius: 30%;
+    }
+
+    80% {
+        border-color: rgba(163, 83, 163, 0.5);
+        border-style: dashed;
+        border-width: 20px;
+        border-radius: 40%;
+    }
+
+    to {  border-color: rgba(163, 83, 163, 0);
+        border-width: 25px;  
+        border-radius: 50%;
+        background-color: rgb(197, 235, 231);
+    } 
+}
+
+
+

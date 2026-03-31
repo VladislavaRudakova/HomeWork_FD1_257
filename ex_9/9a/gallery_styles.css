@@ -1,0 +1,9 @@
+div.video {      
+    margin-bottom: 20px;
+}
+
+div.videobox {          
+    width: 580px;
+    height: 700px;
+    overflow: auto;
+}
