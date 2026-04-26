@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countries</title>
+</head>
+<body>
+
+    <h2>Список стран</h2>
+    
+    <input type="button" value="ввод информации о стране" onclick="inputCountry()">
+    <input type="button" value="получение информации о стране" onclick="showCountry()">
+    <input type="button" value="список всех стран" onclick="showAllCountries()">
+    <input type="button" value="удаление информации о стране" onclick="removeCountry()">
+
+    
+    <script src="countries.js"></script>
+
+    <script>  
+        function inputCountry() {
+            var name = prompt("Введите название страны:");
+            if (name) {
+                var capital = prompt("Введите название столицы:");
+                addCountry(name, capital);
+                alert("Информация добавлена");
+            }
+        }
+
+        function showCountry() {
+            var name = prompt("Введите название страны:");
+            if (name) {
+                alert(getCountryInfo(name));
+            }
+        }
+
+        function showAllCountries() {
+            console.log("Список всех стран:" + listCountrys());
+            alert("Список выведен в консоль");
+        }
+
+        function removeCountry() {
+            var name = prompt("Введите название страны для удаления:");
+            if (name) {
+                deleteCountry(name);
+                alert("Информация о стране " + name + " удалена.");
+            }
+        }
+    </script>
+</body>
+</html>

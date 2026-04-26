@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Anketa_oper</title>
+</head>
+<body>
+    <script>
+       
+        var lastName = prompt("Введите вашу фамилию:");
+        var firstName = prompt("Введите ваше имя:");
+        var patronymic = prompt("Введите ваше отчество:");
+        var ageYears;
+
+        do {
+            age = parseInt(prompt("Введите ваш возраст в годах:"));   
+        } while (isNaN(age) || age <= 0 || age >= 120);
+
+        var isMale = confirm("Ваш пол - мужской?");
+       
+        var ageDays = ageYears * 365;
+        var ageIn5Years = ageYears + 5;
+        var gender = isMale ? "мужской" : "женский";
+
+      
+        var isPensioner = isMale 
+            ? (ageYears >= 63 ? "да" : "нет") 
+            : (ageYears >= 58 ? "да" : "нет");
+
+       
+        alert(
+            "ваше ФИО: " + lastName + " " + firstName + " " + patronymic + "\n" +
+            "ваш возраст в годах: " + ageYears + "\n" +
+            "ваш возраст в днях: " + ageDays + "\n" +
+            "через 5 лет вам будет: " + ageIn5Years + "\n" +
+            "ваш пол: " + gender + "\n" +
+            "вы на пенсии: " + isPensioner
+        );
+    </script>
+</body>
+</html>
